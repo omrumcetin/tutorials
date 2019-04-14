@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-class Animals
+class Animal
 {
 public:
 	virtual void MakeNoise()
@@ -18,7 +18,7 @@ public:
 	}
 };
 
-class Dog : public Animals
+class Dog : public Animal
 {
 public:
 	void MakeNoise() override
@@ -26,7 +26,7 @@ public:
 		std::cout << "Hav hav!" << std::endl;
 	}
 };
-class Cat : public Animals
+class Cat : public Animal
 {
 public:
 	void MakeNoise() override
@@ -35,13 +35,16 @@ public:
 	}
 };
 
-
+void Stroke(Animal* animal)
+{
+	animal->MakeNoise();
+}
 
 void main()
 {
 	Dog dayzi;
 	Cat cagu;
-
-	dayzi.MakeNoise();
-	cagu.MakeNoise();
+	
+	Stroke(&dayzi);
+	Stroke(&cagu);
 }
